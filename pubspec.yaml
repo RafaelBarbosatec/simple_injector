@@ -1,8 +1,8 @@
 name: simple_injector
 description: Simple Injector DI
 version: 0.0.1
-author:
-homepage:
+author: RafaelBarbosatec<rafaelbarbosatec@gmail.com>
+homepage: https://github.com/RafaelBarbosatec/simple_injector
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
