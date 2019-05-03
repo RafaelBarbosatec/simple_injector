@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_injector/simple_injector.dart';
-import 'package:simple_injector_demo/BlocModulo.dart';
-import 'package:simple_injector_demo/bloc/Bloc1.dart';
-import 'package:simple_injector_demo/bloc/Bloc2.dart';
-import 'package:simple_injector_demo/repository/RepositoryTest2.dart';
-
-import 'RepositoryModulo.dart';
-import 'package:simple_injector_demo/repository/RepositoryTest.dart';
+import 'package:simple_injector_demo/bloc_modulo.dart';
+import 'package:simple_injector_demo/repository_modulo.dart';
 
 void main() => runApp(MyApp());
 
@@ -67,4 +62,59 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+}
+
+///RepositoryTest
+abstract class RepositoryTest{
+  String getTest();
+}
+
+class RepositoryTestImpl implements RepositoryTest{
+
+  @override
+  String getTest() {
+    return "Call RepositoryTest!!!";
+  }
+
+}
+
+///RepositoryTest2
+abstract class RepositoryTest2{
+  String getTest2();
+}
+
+class RepositoryTest2Impl implements RepositoryTest2{
+
+  final RepositoryTest r;
+
+  RepositoryTest2Impl(this.r);
+
+  @override
+  String getTest2() {
+    return "Call RepositoryTest2!!!\n${r.getTest()}";
+  }
+
+}
+
+///Bloc1
+class Bloc1{
+
+  final RepositoryTest repo;
+
+  Bloc1(this.repo);
+
+  String teste(){
+    return "BLOC1: ${repo.getTest()}";
+  }
+}
+
+///Bloc2
+class Bloc2{
+  final RepositoryTest2 repo;
+
+  Bloc2(this.repo);
+
+  String teste(){
+    return "BLOC2: ${repo.getTest2()}";
+  }
 }

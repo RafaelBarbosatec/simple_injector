@@ -2,24 +2,19 @@
 
 import 'package:simple_injector/module_injector.dart';
 import 'package:simple_injector/simple_injector.dart';
-import 'package:simple_injector_demo/repository/RepositoryTest2.dart';
-
-import 'package:simple_injector_demo/repository/RepositoryTest.dart';
+import 'main.dart';
 
 class RepositoryModulo extends ModuleInjector{
 
-  RepositoryTest repositoryTestSingleton;
+
 
   RepositoryModulo(){
-    add(RepositoryTest, repositoryTest);
+    add(RepositoryTest, repositoryTest, isSingleton: true);
     add(RepositoryTest2, repositoryTest2);
   }
 
   RepositoryTest repositoryTest(){
-    if(repositoryTestSingleton == null){
-      repositoryTestSingleton = RepositoryTestImpl();
-    }
-    return repositoryTestSingleton;
+      return RepositoryTestImpl();
   }
 
   RepositoryTest2 repositoryTest2(){

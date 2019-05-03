@@ -1,7 +1,6 @@
 
 import 'package:simple_injector/simple_injector.dart';
-import 'package:simple_injector_demo/bloc/Bloc1.dart';
-import 'package:simple_injector_demo/bloc/Bloc2.dart';
+import 'package:simple_injector_demo/main.dart';
 
 class BlocModulo extends ModuleInjector{
 
