@@ -3,7 +3,7 @@ import 'package:simple_injector/simple_injector.dart';
 
 abstract class ModuleInjector{
 
-  get flavor => SimpleInjector().getFlavor();
+  Flavor get flavor => SimpleInjector().getFlavor();
 
   Map<Type,Function> _mapInjector = Map();
   void add(Type type, Function create){
