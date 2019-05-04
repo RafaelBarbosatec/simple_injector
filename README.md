@@ -29,7 +29,7 @@ class RepositoryModulo extends ModuleInjector{
 
   RepositoryTest2 repositoryTest2(){
     return RepositoryTest2Impl(
-      SimpleInjector().inject()
+      inject()
     );
   }
 
