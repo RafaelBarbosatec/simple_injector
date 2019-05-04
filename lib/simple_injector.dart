@@ -4,19 +4,15 @@ import 'package:simple_injector/injection.dart';
 import 'package:simple_injector/module_injector.dart';
 export 'package:simple_injector/module_injector.dart';
 
-enum Flavor {
-  DEBUG,
-  HOMOLOG,
-  PROD
-}
+enum Flavor { DEBUG, HOMOLOG, PROD }
 
 class SimpleInjector {
   static final SimpleInjector _singleton = new SimpleInjector._internal();
   static Flavor _flavor;
   static bool _showDebug;
-  Map<Type,Injection> _injectorMap = Map();
+  Map<Type, Injection> _injectorMap = Map();
 
-  static void configure(Flavor flavor,{bool showDebug = false}) {
+  static void configure(Flavor flavor, {bool showDebug = false}) {
     _flavor = flavor;
     _showDebug = showDebug;
   }
@@ -29,11 +25,10 @@ class SimpleInjector {
 
   Flavor getFlavor() => _flavor;
 
-  T inject<T>(){
-
-    if(_injectorMap.containsKey(T)){
-      if(_injectorMap[T].isSingleton){
-        if(_injectorMap[T].instance == null){
+  T inject<T>() {
+    if (_injectorMap.containsKey(T)) {
+      if (_injectorMap[T].isSingleton) {
+        if (_injectorMap[T].instance == null) {
           _injectorMap[T].instance = _injectorMap[T].create();
           showDebugCreateSingleton(T);
         }
@@ -42,8 +37,7 @@ class SimpleInjector {
       }
       showDebugInjectorNewInstance(T);
       return _injectorMap[T].create();
-
-    }else{
+    } else {
       print("${this.runtimeType}:: Error: Not found $T in modules for inject");
       return null;
     }
@@ -54,21 +48,20 @@ class SimpleInjector {
   }
 
   void showDebugInjectorNewInstance(Type t) {
-    if(_showDebug){
+    if (_showDebug) {
       print("${this.runtimeType}:: Inject new $t");
     }
   }
 
   void showDebugInjectorSingletonInstance(Type t) {
-    if(_showDebug){
+    if (_showDebug) {
       print("${this.runtimeType}:: Inject singleton $t");
     }
   }
 
   void showDebugCreateSingleton(Type t) {
-    if(_showDebug){
+    if (_showDebug) {
       print("${this.runtimeType}:: Create singleton $t");
     }
   }
-
 }

@@ -1,4 +1,4 @@
-class Injection{
+class Injection {
   final Function create;
   final bool isSingleton;
   dynamic instance;

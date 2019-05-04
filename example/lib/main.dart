@@ -6,8 +6,7 @@ import 'package:simple_injector_demo/repository_modulo.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
-  MyApp(){
+  MyApp() {
     SimpleInjector.configure(Flavor.PROD, showDebug: true);
     SimpleInjector().registerModule(RepositoryModulo());
     SimpleInjector().registerModule(BlocModulo());
@@ -35,7 +34,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   RepositoryTest repository = SimpleInjector().inject();
   RepositoryTest2 repository2 = SimpleInjector().inject();
 
@@ -61,30 +59,26 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
 }
 
 ///RepositoryTest
-abstract class RepositoryTest{
+abstract class RepositoryTest {
   String getTest();
 }
 
-class RepositoryTestImpl implements RepositoryTest{
-
+class RepositoryTestImpl implements RepositoryTest {
   @override
   String getTest() {
     return "Call RepositoryTest!!!";
   }
-
 }
 
 ///RepositoryTest2
-abstract class RepositoryTest2{
+abstract class RepositoryTest2 {
   String getTest2();
 }
 
-class RepositoryTest2Impl implements RepositoryTest2{
-
+class RepositoryTest2Impl implements RepositoryTest2 {
   final RepositoryTest r;
 
   RepositoryTest2Impl(this.r);
@@ -93,28 +87,26 @@ class RepositoryTest2Impl implements RepositoryTest2{
   String getTest2() {
     return "Call RepositoryTest2!!!\n${r.getTest()}";
   }
-
 }
 
 ///Bloc1
-class Bloc1{
-
+class Bloc1 {
   final RepositoryTest repo;
 
   Bloc1(this.repo);
 
-  String teste(){
+  String teste() {
     return "BLOC1: ${repo.getTest()}";
   }
 }
 
 ///Bloc2
-class Bloc2{
+class Bloc2 {
   final RepositoryTest2 repo;
 
   Bloc2(this.repo);
 
-  String teste(){
+  String teste() {
     return "BLOC2: ${repo.getTest2()}";
   }
 }
