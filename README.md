@@ -2,13 +2,57 @@
 
 Simple Injector DI
 
-## Getting Started
+# Usage
+To use this plugin, add `simple_injector` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
-This project is a starting point for a Dart
-[package](https://flutter.io/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+### Example
+Before configure is necessary create module of the inject. Example:
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+``` dart
+
+import 'package:simple_injector/module_injector.dart';
+import 'package:simple_injector/simple_injector.dart';
+
+class RepositoryModulo extends ModuleInjector{
+
+  ///in the constructor we add what should be injected by passing: type and the method that creates it (optional isSingleton if desired)
+  RepositoryModulo(){
+    add(RepositoryTest, repositoryTest, isSingleton: true);
+    add(RepositoryTest2, repositoryTest2);
+  }
+
+  RepositoryTest repositoryTest(){
+      return RepositoryTestImpl();
+  }
+
+  RepositoryTest2 repositoryTest2(){
+    return RepositoryTest2Impl(
+      SimpleInjector().inject()
+    );
+  }
+
+}
+```
+
+After the module created we configured our SimpleInjector in the constructor app
+
+``` dart
+import 'package:simple_injector/simple_injector.dart';
+
+MyApp(){
+    SimpleInjector.configure(Flavor.PROD);
+    SimpleInjector().registerModule(RepositoryModulo());
+  }
+```
+
+All ready! you can register as many modules as you want. to inject air into a configured dependency, just add this:
+
+``` dart
+
+RepositoryTest repository = SimpleInjector().inject();
+
+or
+
+final repository = SimpleInjector().<RepositoryTest>inject();
+
+```
