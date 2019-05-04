@@ -8,7 +8,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
 
   MyApp(){
-    SimpleInjector.configure(Flavor.PROD);
+    SimpleInjector.configure(Flavor.PROD, showDebug: true);
     SimpleInjector().registerModule(RepositoryModulo());
     SimpleInjector().registerModule(BlocModulo());
   }

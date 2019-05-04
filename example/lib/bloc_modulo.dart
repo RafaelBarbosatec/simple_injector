@@ -11,13 +11,13 @@ class BlocModulo extends ModuleInjector{
 
   Bloc1 bloc1Create(){
     return Bloc1(
-      SimpleInjector().inject()
+      inject()
     );
   }
 
   Bloc2 bloc2Create(){
     return Bloc2(
-        SimpleInjector().inject()
+       inject()
     );
   }
 }
