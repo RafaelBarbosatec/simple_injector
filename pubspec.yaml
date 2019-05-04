@@ -1,6 +1,6 @@
 name: simple_injector
 description: Inject your dependencies simply and quickly. The dependency is created in the measure that it is injected.
-version: 0.1.1
+version: 0.1.2
 author: RafaelBarbosatec<rafaelbarbosatec@gmail.com>
 homepage: https://github.com/RafaelBarbosatec/simple_injector
 
