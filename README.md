@@ -1,4 +1,6 @@
-# simple_injector
+[![pub package](https://img.shields.io/pub/v/simple_injector.svg)](https://pub.dartlang.org/packages/simple_injector)
+
+# SimpleInjector
 
 Simple Injector DI
 
