@@ -4,6 +4,8 @@
 
 Inject your dependencies simply and quickly. The dependency is created in the measure that it is injected, if it is configured singleton it is created only in the first one that is injected.
 
+ATTENTION: This package has no connection with the company or libraries of https://simpleinjector.org
+
 # Usage
 To use this plugin, add `simple_injector` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
