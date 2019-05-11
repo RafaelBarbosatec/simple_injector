@@ -1,6 +1,8 @@
 [![pub package](https://img.shields.io/pub/v/simple_injector.svg)](https://pub.dartlang.org/packages/simple_injector)
 
-# SimpleInjector
+# SimpleInjector(discontinued)
+
+Use [injector](https://pub.dev/packages/injector) is similar and more complete
 
 Inject your dependencies simply and quickly. The dependency is created in the measure that it is injected, if it is configured singleton it is created only in the first one that is injected.
 
